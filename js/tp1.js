@@ -38,12 +38,24 @@ function exo1(limit) {
 // Exercice 2
 function exo2_1() {
     "use strict";
-    // TODO regarder le résultat des calculs de nombres
+    window.console.log("Exercice 2.1");
+    window.console.log(Number("A"));   // NaN
+    window.console.log(2 + (+"12") );        // 14
+    window.console.log(2 * "12");            // 24
+    window.console.log(1/0);                 // Infinity
+    window.console.log(2 + "12");            // 212
+    window.console.log((+"A"));              // NaN
+    window.console.log(2 * "A");             // NaN
+    window.console.log(1/-0);                // -Infinity
 }
 
 function exo2_2() {
     "use strict";
     window.console.log("Exercice 2.2");
+    window.console.log(NaN === NaN);          // false
+    window.console.log(NaN !== NaN);          // true
+    window.console.log(isNaN(NaN));           // true
+
 
     // TODO regarder le résultat des opérations avec NaN
 }
@@ -51,14 +63,20 @@ function exo2_2() {
 function exo2_3() {
     "use strict";
     window.console.log("Exercice 2.3");
-
+    let x;
+    window.console.log(x);          // undefined
     // TODO regarder la valeur d'une variable non initialisée
 }
 
 function exo2_4() {
     "use strict";
-
     window.console.log("Exercice 2.4");
+    let x = 5;
+    let y = null;
+    let z;
+    window.console.log("num === null : " + (x===y) + "\n" + "null===undefined : " + (y===z));
+    // num === null : falsen
+    // null===undefined : false
 
     // TODO regarder la différence entre null et undefined
 }
