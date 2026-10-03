@@ -164,8 +164,37 @@ function estEmail(texte) {
 function exo4() {
     "use strict";
     appendText("Exercice 4");
-    // TODO
-    appendText("TODO : ajoutez le résulat de chaque opération")
+
+    const robotTest = new Robot("I, robot");
+    appendText(robotTest.nom);
+
+    const r1 = new Robot("Buttler");
+    const r2 = new Robot("Buttler");
+    appendText("Robot: r1===r2 : " + (r1===r2));
+    appendText("r1.equals(r2) : " + (r1.equals(r2)));
+
+    const r3 = Robot2("ChatGPT");
+    const r4 = Robot2("ChatGPT");
+    appendText("Robot2: r3.equals(r4) : " + (r3.equals(r4)));
+
+}
+
+function Robot(nom) { // Constructeur Capitalisé
+    "use strict";
+    this.nom = nom;
+    this.equals = function (robot) {return robot.nom === nom;};
+}
+
+function Robot2(nom) {
+    "use strict";
+    return {
+        getNom: function () {
+            return nom;
+        },
+        equals: function (robot) {
+            return robot.getNom() === nom;
+        }
+    };
 }
 
 
