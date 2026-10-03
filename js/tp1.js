@@ -22,9 +22,15 @@ function runFunction() {
 
 // Exercice 1
 function exo1(limit) {
-    "use strict";
-
-
+        const result = [];
+        for (let n = 2; n < limit; n++) {
+            let sum = 0;
+            for (let d = 1; d <= n / 2 ; d++) {
+                if (n % d === 0) sum += d;
+            }
+            if (sum === n) result.push(n);
+        }
+        window.alert(result);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -32,7 +38,6 @@ function exo1(limit) {
 // Exercice 2
 function exo2_1() {
     "use strict";
-
     // TODO regarder le résultat des calculs de nombres
 }
 
