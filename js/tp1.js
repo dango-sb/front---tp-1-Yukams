@@ -99,43 +99,63 @@ function exo3() {
 
     appendText("Exercice 3");
     var list = [1, 2, 4];
-    // TODO camlListOfArray
+    appendText("camlListOfArray([1, 2, 4]) = " + camlListOfArray(list));
 
     var palindromes = ["", "a", "BB", "BOB", "ESOPERESTEICIETSEREPOSE"];
     var nonPalindromes = ["Bob", "BABA"];
-    // TODO estPalindrome
+    for (let i = 0; i < palindromes.length; i++) {
+        appendText("estPalindrome(" + palindromes[i] + ") = " + estPalindrome(palindromes[i]));
+    }
+    for (let i = 0; i < nonPalindromes.length; i++) {
+        appendText("estPalindrome(" + nonPalindromes[i] + ") = " + estPalindrome(nonPalindromes[i]));
+    }
 
-    var esop = "ESOPERESTEICIETSEREPOSE"
-    // TODO listeOccurrences
+    var esop = "ESOPERESTEICIETSEREPOSE";
+    appendText("listeOccurrences(\"E\", \"ESOPERESTEICIETSEREPOSE\") = " + listeOccurrences("E", "ESOPERESTEICIETSEREPOSE"));
 
     var testsEmail = ["a@b.fr", "john.doe@firm.co.uk", "somebody@domain"];
-    // TODO estEmail
+    testsEmail.forEach((element)=>appendText("estEmail(" + element +") = " + estEmail(element)));
 
     appendText("TODO : ajoutez le résulat de chaque opération");
 }
 
 function camlListOfArray(tableau) {
     "use strict";
-    // TODO
-    return "TODO";
+    let resultat = "[";
+    for (let i = 0; i < tableau.length; i++) {
+        if (i > 0) {
+            resultat += "; ";
+        }
+        resultat += tableau[i];
+    }
+    return resultat + "]";
 }
 
 function estPalindrome(texte) {
     "use strict";
-    // TODO
+    let lenTxt = texte.length - 1;
+    for (let i = 0;i<lenTxt/2;i++) {
+        if (texte.charAt(i) !== texte.charAt(lenTxt - i))
+            return false;
+    }
     return true;
 }
 
 function listeOccurrences(search, texte) {
     "use strict";
-    // TODO
-    return [];
+    const idxs = [];
+    let position = texte.indexOf(search);
+    while (position !== -1) {
+        idxs.push(position);
+        position = texte.indexOf(search, position + 1);
+    }
+    return idxs;
 }
 
 function estEmail(texte) {
     "use strict";
-    // TODO
-    return true;
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}$/;
+    return regex.test(texte);
 }
 
 //////////////////////////////////////////////////////////////////////
